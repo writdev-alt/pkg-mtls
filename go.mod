@@ -1,3 +1,2 @@
-module github.com/writdev-alt/apiservice-mtls
-
+module github.com/writdev-alt/pkg-mtls
 go 1.26.0
