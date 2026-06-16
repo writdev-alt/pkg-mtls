@@ -16,8 +16,6 @@ api-gateway                    production service
 - **Gateway** — `NewTransport` / `ClientTLSConfig` present `gateway.crt` to upstreams.
 - **Backends** — `ServerTLSConfig` / `RunGin` listen on HTTPS and require a valid gateway client cert.
 
-See [../../mtls/README.md](../../mtls/README.md) for cert generation and Docker Compose setup.
-
 ## API
 
 | Function | Role |
@@ -87,10 +85,8 @@ With mTLS enabled in Compose, certs are mounted read-only at `/etc/mtls` on gate
 ## Tests
 
 ```bash
-cd api-service/pkg/mtls
 go test ./...
 ```
 
 Unit tests cover config loading, TLS config construction, transport creation, and `ConfigureServer`. Cert fixtures are generated in-test (no checked-in PEM files).
 
-See [../README.md](../README.md) for `go.mod` `replace` paths and deployment examples.
